@@ -1,11 +1,15 @@
 {
   "vetur.validation.template": false,
   "vetur.format.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
-    "vue"
+    "vue",
+    "html"
   ],
   "vetur.experimental.templateInterpolationService": true
 }
