@@ -53,13 +53,13 @@ export default {
   z-index: 6000;
   position: fixed;
   top: 0;
-  background-color: background-light;
+  background-color: $background-light;
 }
 .container-bottom {
   z-index: 6000;
   position: fixed;
   bottom: 0;
-  background-color: background-light;
+  background-color: $background-light;
 }
 .q-avatar {
   display: flex;
