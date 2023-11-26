@@ -12,22 +12,30 @@
         class="logo q-mb-lg"
         src="../../assets/instadev-logo.svg"
       />
-      <q-input filled v-model="email" label="E-mail" class="full-width q-mb-md" />
-      <q-input filled v-model="password" label="Password" type="password" class="full-width" />
-      <div class="column items-end full-width">
-        <a class="q-mt-md link" href="">Forgot password?</a>
-      </div>
+      <q-input filled v-model="email" label="Email" class="full-width q-mb-md" />
+      <q-input filled v-model="userName" label="UserName" class="full-width q-mb-md" />
+      <q-input
+        filled
+        v-model="password"
+        label="Password"
+        type="password"
+        class="full-width q-mb-md"
+      />
+      <q-input
+        filled
+        v-model="confirmPassword"
+        label="Confirm Password"
+        type="password"
+        class="full-width"
+      />
 
       <q-btn
         color="primary"
         :disable="true"
-        label="Log In"
+        label="Sign Up"
         class="full-width sign-in-button q-mt-lg"
-        />
-      <div class="flex row full-width items-center justify-center q-mt-xl">
-        <q-img class="facebook-icon" src="../../assets/facebook-logo.svg" />
-        <a class="link q-ml-xs" href="">Log in with Facebook</a>
-      </div>
+      />
+
       <div class="full-width row items-center justify-center q-my-xl">
         <q-separator class="separator" inset />
           OR
@@ -35,9 +43,9 @@
       </div>
       <div class="full-width row items-center justify-center">
         <span>
-          Don’t have an account?
+          alread have an account?
         </span>
-        <a href="" class="link q-ml-xs">Sign up</a>
+        <a href="" class="link q-ml-xs">Sign In.</a>
       </div>
     </div>
     <div class="full-width column items-center absolute-bottom">
@@ -51,11 +59,13 @@
 
 <script>
 export default {
-  name: 'SignIn',
+  name: 'SignUp',
   data() {
     return {
       email: '',
+      userName: '',
       password: '',
+      confirmPassword: '',
     };
   },
 };

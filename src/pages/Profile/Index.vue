@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex">
     <div class="full-width row items-center justify-between bg-grey-2">
-      <q-btn flat color="primary" label="Cancel" />
+      <q-btn flat color="grey-9" label="Cancel" />
       <strong>Edit Profile</strong>
       <q-btn flat color="primary" label="Done" />
     </div>
