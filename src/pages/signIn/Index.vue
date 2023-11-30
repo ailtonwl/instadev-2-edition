@@ -12,18 +12,22 @@
         class="logo q-mb-lg"
         src="../../assets/instadev-logo.svg"
       />
-      <q-input filled v-model="email" label="E-mail" class="full-width q-mb-md" />
-      <q-input filled v-model="password" label="Password" type="password" class="full-width" />
-      <div class="column items-end full-width">
-        <a class="q-mt-md link" href="">Forgot password?</a>
-      </div>
+      <q-form class="full-width" @submit="onSubmit">
+        <q-input filled v-model="credential" label="E-mail ou usuário" class="full-width q-mb-md" />
+        <q-input filled v-model="password" label="Password" type="password" class="full-width" />
+        <div class="column items-end full-width">
+          <a class="q-mt-md link" href="">Forgot password?</a>
+        </div>
 
-      <q-btn
-        color="primary"
-        :disable="true"
-        label="Log In"
-        class="full-width sign-in-button q-mt-lg"
+        <q-btn
+          type="submit"
+          color="primary"
+          :disable="!credential || !password"
+          label="Log In"
+          class="full-width sign-in-button q-mt-lg"
         />
+      </q-form>
+
       <div class="flex row full-width items-center justify-center q-mt-xl">
         <q-img class="facebook-icon" src="../../assets/facebook-logo.svg" />
         <a class="link q-ml-xs" href="">Log in with Facebook</a>
@@ -54,9 +58,25 @@ export default {
   name: 'SignIn',
   data() {
     return {
-      email: '',
+      credential: '',
       password: '',
     };
+  },
+  methods: {
+    async onSubmit() {
+      const result = await this.$store.dispatch('auth/makeLogin', {
+        credential: this.credential,
+        password: this.password,
+      });
+      await this.loadProfileData(result.token);
+
+      if (result) {
+        this.$router.push({ path: 'main' });
+      }
+    },
+    async loadProfileData(token) {
+      await this.$store.dispatch('user/getUserProfile', { token });
+    },
   },
 };
 </script>
